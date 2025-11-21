@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Profile & Resume</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: #eef2f7;
+        color: #333;
+    }
+
+    /* Fade animation */
+    .fade {
+        animation: fadeIn 0.6s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Container */
+    .card {
+        width: 90%;
+        max-width: 650px;
+        background: white;
+        margin: 60px auto;
+        border-radius: 18px;
+        box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+        overflow: hidden;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+
+    /* Header area */
+    .header {
+        background: #ff91c3;
+        padding: 40px 20px;
+        color: white;
+    }
+
+    .profile-pic {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid white;
+        margin-top: -70px;
+        background: #fff;
+    }
+
+    h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .info {
+        font-size: 16px;
+        margin: 4px 0;
+    }
+
+    /* Section titles */
+    h2 {
+        text-align: left;
+        margin-top: 25px;
+        font-size: 20px;
+        color: #0066ff;
+        padding-left: 25px;
+    }
+
+    p {
+        text-align: left;
+        padding: 0 25px;
+        font-size: 15px;
+        color: #555;
+    }
+
+    /* Buttons */
+    .btn {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 14px 28px;
+        font-size: 16px;
+        border-radius: 30px;
+        cursor: pointer;
+        border: none;
+        color: white;
+        background: #4a4036;
+        box-shadow: 0 5px 20px rgba(0, 120, 255, 0.3);
+        transition: 0.3s;
+    }
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 120, 255, 0.5);
+    }
+
+    .btn-secondary {
+        background: #444;
+    }
+    .btn-secondary:hover {
+        background: #4a4036;
+    }
+
+    /* Hide resume initially */
+    #resumePage {
+        display: none;
+    }
+</style>
+
+</head>
+<body>
+
+<!-- ===================== PROFILE PAGE ===================== -->
+<div class="card fade" id="profilePage">
+
+    <div class="header">
+        <h1></h1>
+    </div>
+
+    <img src="manjula.jpg" class="profile-pic" alt="Profile Picture">
+
+    <p class="info"><strong>Name</strong>Manjula Chavan</p>
+    <p class="info"><strong>USN:</strong> 2MM23CS029</p>
+    <p class="info"><strong>Branch:</strong> Computer Science Engineering</p>
+
+    <button class="btn" onclick="showResume()">View Resume</button>
+</div>
+
+<!-- ===================== RESUME PAGE ===================== -->
+<div class="card fade" id="resumePage">
+
+    <div class="header">
+        <h1>Resume</h1>
+    </div>
+
+    <h2>Skills</h2>
+    <p>• HTML • CSS • JavaScript • Python • React • UI/UX</p>
+
+    <h2>Experience</h2>
+    <p>Web Developer Intern – ABC Technologies (2024)<br>
+       Built responsive web applications and UI components.</p>
+
+    <h2>Education</h2>
+    <p>B.E in Computer Science – XYZ University (2020–2024)</p>
+
+    <h2>Languages</h2>
+    <p>English • Hindi • Kannada</p>
+
+    <button class="btn" onclick="downloadResume()">Download Resume</button>
+    <button class="btn btn-secondary" onclick="goHome()">Back to Home</button>
+</div>
+
+<script>
+    function showResume() {
+        document.getElementById("profilePage").style.display = "none";
+        document.getElementById("resumePage").style.display = "block";
+    }
+
+    function goHome() {
+        document.getElementById("resumePage").style.display = "none";
+        document.getElementById("profilePage").style.display = "block";
+    }
+
+    function downloadResume() {
+        const content = document.getElementById("resumePage").innerText;
+        const blob = new Blob([content], { type: "text/plain" });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "Resume.txt";
+        a.click();
+    }
+</script>
+
+</body>
+</html>
