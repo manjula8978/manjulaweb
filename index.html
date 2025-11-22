@@ -1,182 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Profile & Resume</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile & Resume Page</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
+  <style>
     body {
-        margin: 0;
-        font-family: "Poppins", sans-serif;
-        background: #eef2f7;
-        color: #333;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
     }
 
-    /* Fade animation */
-    .fade {
-        animation: fadeIn 0.6s ease-in-out;
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Container */
-    .card {
-        width: 90%;
-        max-width: 650px;
-        background: white;
-        margin: 60px auto;
-        border-radius: 18px;
-        box-shadow: 0 10px 35px rgba(0,0,0,0.1);
-        overflow: hidden;
-        text-align: center;
-        padding-bottom: 30px;
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    /* Header area */
-    .header {
-        background: #ff91c3;
-        padding: 40px 20px;
-        color: white;
+    h2 {
+      text-align: center;
+      margin-top: 5px;
+    }
+
+    label {
+      font-weight: bold;
     }
 
     .profile-pic {
-        width: 140px;
-        height: 140px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 5px solid white;
-        margin-top: -70px;
-        background: #fff;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 20px auto;
+      object-fit: cover;
+      border: 3px solid #007bff;
     }
 
-    h1 {
-        font-size: 28px;
-        font-weight: 700;
-        margin-bottom: 5px;
-    }
-
-    .info {
-        font-size: 16px;
-        margin: 4px 0;
-    }
-
-    /* Section titles */
-    h2 {
-        text-align: left;
-        margin-top: 25px;
-        font-size: 20px;
-        color: #0066ff;
-        padding-left: 25px;
-    }
-
-    p {
-        text-align: left;
-        padding: 0 25px;
-        font-size: 15px;
-        color: #555;
-    }
-
-    /* Buttons */
     .btn {
-        display: inline-block;
-        margin-top: 25px;
-        padding: 14px 28px;
-        font-size: 16px;
-        border-radius: 30px;
-        cursor: pointer;
-        border: none;
-        color: white;
-        background: #4a4036;
-        box-shadow: 0 5px 20px rgba(0, 120, 255, 0.3);
-        transition: 0.3s;
+      width: 100%;
+      padding: 12px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
     }
+
     .btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 120, 255, 0.5);
+      background: #0056b3;
     }
 
-    .btn-secondary {
-        background: #444;
-    }
-    .btn-secondary:hover {
-        background: #4a4036;
-    }
-
-    /* Hide resume initially */
     #resumePage {
-        display: none;
+      display: none;
     }
-</style>
 
+    .download-btn {
+      background: #28a745;
+    }
+
+    .download-btn:hover {
+      background: #1e7e34;
+    }
+
+    .home-btn {
+      background: #6c757d;
+    }
+
+    .home-btn:hover {
+      background: #565e64;
+    }
+
+    /* --- MOBILE RESPONSIVE --- */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 15px;
+      }
+      .profile-pic {
+        width: 120px;
+        height: 120px;
+      }
+      .btn {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- ===================== PROFILE PAGE ===================== -->
-<div class="card fade" id="profilePage">
+<!-- ---------------- PROFILE PAGE ---------------- -->
+<div class="container" id="profilePage">
+  <h2>Profile Page</h2>
 
-    <div class="header">
-        <h1></h1>
-    </div>
+  <img src="profile.jpg" alt="Profile Picture" class="profile-pic" />
 
-    <img src="manjula.jpg" class="profile-pic" alt="Profile Picture">
+  <p><label>Name:</label> John Doe</p>
+  <p><label>Date of Birth:</label> 01-01-2004</p>
+  <p><label>USN:</label> 4NI21CS001</p>
+  <p><label>Branch:</label> Computer Science</p>
 
-    <p class="info"><strong>Name</strong>Manjula Chavan</p>
-    <p class="info"><strong>USN:</strong> 2MM23CS029</p>
-    <p class="info"><strong>Branch:</strong> Computer Science Engineering</p>
-
-    <button class="btn" onclick="showResume()">View Resume</button>
+  <button class="btn" onclick="openResume()">Open Resume</button>
 </div>
 
-<!-- ===================== RESUME PAGE ===================== -->
-<div class="card fade" id="resumePage">
+<!-- ---------------- RESUME PAGE ---------------- -->
+<div class="container" id="resumePage">
+  <h2>Resume</h2>
 
-    <div class="header">
-        <h1>Resume</h1>
-    </div>
+  <h3>Profile Summary</h3>
+  <p>Highly motivated Computer Science student with strong programming and problem-solving skills. Passionate about software development and emerging technologies.</p>
 
-    <h2>Skills</h2>
-    <p>• HTML • CSS • JavaScript • Python • React • UI/UX</p>
+  <h3>Education</h3>
+  <ul>
+    <li>B.E in Computer Science, NIE Institute of Technology (2021–2025)</li>
+    <li>PUC – Science (PCMC), 2019–2021</li>
+    <li>SSLC – 2019</li>
+  </ul>
 
-    <h2>Experience</h2>
-    <p>Web Developer Intern – ABC Technologies (2024)<br>
-       Built responsive web applications and UI components.</p>
+  <h3>Technical Skills</h3>
+  <ul>
+    <li>Programming: C, Java, Python, JavaScript</li>
+    <li>Web Technologies: HTML, CSS, React (Basics)</li>
+    <li>Database: MySQL, MongoDB</li>
+    <li>Tools: Git, VS Code</li>
+  </ul>
 
-    <h2>Education</h2>
-    <p>B.E in Computer Science – XYZ University (2020–2024)</p>
+  <h3>Projects</h3>
+  <ul>
+    <li><strong>Student Management System</strong> – Web app using HTML, CSS, MySQL</li>
+    <li><strong>Library Automation</strong> – Java-based console application</li>
+    <li><strong>Portfolio Website</strong> – Personal responsive website</li>
+  </ul>
 
-    <h2>Languages</h2>
-    <p>English • Hindi • Kannada</p>
+  <h3>Contact</h3>
+  <p>Email: john.doe@example.com</p>
+  <p>Phone: +91 98765 43210</p>
 
-    <button class="btn" onclick="downloadResume()">Download Resume</button>
-    <button class="btn btn-secondary" onclick="goHome()">Back to Home</button>
+  <a href="resume.pdf" download>
+    <button class="btn download-btn">Download Resume</button>
+  </a>
+
+  <button class="btn home-btn" onclick="goHome()">Home</button>
 </div>
 
 <script>
-    function showResume() {
-        document.getElementById("profilePage").style.display = "none";
-        document.getElementById("resumePage").style.display = "block";
-    }
+  function openResume() {
+    document.getElementById('profilePage').style.display = 'none';
+    document.getElementById('resumePage').style.display = 'block';
+  }
 
-    function goHome() {
-        document.getElementById("resumePage").style.display = "none";
-        document.getElementById("profilePage").style.display = "block";
-    }
-
-    function downloadResume() {
-        const content = document.getElementById("resumePage").innerText;
-        const blob = new Blob([content], { type: "text/plain" });
-        const url = URL.createObjectURL(blob);
-
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "Resume.txt";
-        a.click();
-    }
+  function goHome() {
+    document.getElementById('resumePage').style.display = 'none';
+    document.getElementById('profilePage').style.display = 'block';
+  }
 </script>
 
 </body>
