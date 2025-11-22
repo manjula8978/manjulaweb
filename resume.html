@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile & Resume Page</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 5px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 20px auto;
+      object-fit: cover;
+      border: 3px solid #007bff;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #a360cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    .btn:hover {
+      background: #a360cc;
+    }
+
+    #resumePage {
+      display: none;
+    }
+
+    .download-btn {
+      background: #a360cc;
+    }
+
+    .download-btn:hover {
+      background: #a360cc;
+    }
+
+    .home-btn {
+      background: #a360cc;
+    }
+
+    .home-btn:hover {
+      background: #a360cc;
+    }
+
+    /* --- MOBILE RESPONSIVE --- */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 15px;
+      }
+      .profile-pic {
+        width: 120px;
+        height: 120px;
+      }
+      .btn {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ---------------- PROFILE PAGE ---------------- -->
+<div class="container" id="profilePage">
+  <h2>Profile Page</h2>
+
+  <img src="manjula.jpg" alt="Profile Picture" class="profile-pic" />
+
+  <p><label>Name:</label> Manjula Chavan</p>
+  <p><label>Date of Birth:</label> 28-07-2005</p>
+  <p><label>USN:</label> 2MM23CS029</p>
+  <p><label>Branch:</label> Computer Science and Engineering</p>
+
+  <button class="btn" onclick="openResume()">Open Resume</button>
+</div>
+
+<!-- ---------------- RESUME PAGE ---------------- -->
+<div class="container" id="resumePage">
+  <h2>Resume</h2>
+
+  <h3>Profile Summary</h3>
+  <p>Highly motivated Computer Science student with strong programming and problem-solving skills. Passionate about software development and emerging technologies.</p>
+
+  <h3>Education</h3>
+  <ul>
+    <li>B.E in Computer Science, VTU Belagavi(2023–2027)</li>
+    <li>PUC – Science (PCMB), 2021–2023</li>
+    <li>SSLC – 2020</li>
+  </ul>
+
+  <h3>Technical Skills</h3>
+  <ul>
+    <li> Typing Skills</li>
+    <li>Computer Knowledge</li>
+    <li>Basics of programming language</li>
+  </ul>
+
+  <h3>Languages</h3>
+  <ul>
+    <li>Kannada , English , Hindi</li>
+  </ul>
+
+  <h3>Contact</h3>
+  <p>Email: manjulachavan428@gmail.com</p>
+  <p>Phone: +91 6361988978</p>
+
+<a href="resume.pdf" download>Download Resume</a>
+  </a>
+
+  <button class="btn home-btn" onclick="goHome()">Home</button>
+</div>
+
+<script>
+  function openResume() {
+    document.getElementById('profilePage').style.display = 'none';
+    document.getElementById('resumePage').style.display = 'block';
+  }
+
+  function goHome() {
+    document.getElementById('resumePage').style.display = 'none';
+    document.getElementById('profilePage').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
