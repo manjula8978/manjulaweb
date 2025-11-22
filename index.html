@@ -61,20 +61,20 @@
       display: none;
     }
 
-     .download-btn {
-    background-color: #9b59b6;   /* Purple */
+    .download-btn, .open-resume-btn, .home-btn {
+    background-color: #9b59b6;
     color: white;
-    padding: 14px 40px;          /* Bigger button */
-    font-size: 18px;             /* Bigger text */
+    padding: 14px 20px;      /* Reduced padding on mobile */
+    font-size: 16px;         /* Slightly smaller for mobile */
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    width: 250px;                /* Increase width */
+    width: 90%;              /* Auto adjust for mobile */
+    max-width: 350px;        /* Prevents button from being too big */
     text-align: center;
     display: block;
-    margin: 20px auto;           /* Center the button */
+    margin: 20px auto;
 }
-
     .download-btn:hover {
       background: #a360cc;
     }
@@ -171,6 +171,7 @@
 
 </body>
 </html>
+
 
 
 
